@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
-		"monolog/monolog": "^1.13"
+		"monolog/monolog": "^1.13",
+		"laravelcollective/html": "~5.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

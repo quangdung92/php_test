@@ -40,6 +40,9 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/post') }}">Post</a></li>
 					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/upload') }}">Upload</a></li>
+					</ul>
 				@endif
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())

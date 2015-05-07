@@ -26,6 +26,9 @@ Route::get('logout', array('before'=>'csrf', 'uses'=>'TestController@destroy'));
 //Post
 Route::get('post', 'PostController@index');
 Route::post('post/status', array('before'=>'csrf', 'uses'=>'PostController@create'));
+//Upload
+Route::get('upload', 'UploadController@index');
+Route::post('image/create', array('before'=>'csrf', 'uses'=>'UploadController@create'));
 
 //Auth
 Route::controllers([

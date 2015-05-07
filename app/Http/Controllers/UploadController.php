@@ -1,16 +1,16 @@
 <?php namespace App\Http\Controllers;
 
-use Auth;
-use View;
-use DB;
-use App\User;
-use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
-use App\Post;
-use Log;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
+use Log;
+use Auth;
+use App\FileUpload;
 
-class PostController extends Controller {
+
+class UploadController extends Controller {
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -18,14 +18,8 @@ class PostController extends Controller {
 	 */
 	public function index()
 	{
-		$current_user = Auth::user();	
-		$title = "Status Post";
-		// $posts = DB::table('posts')->where('user_id', '=', $current_user['id'])->get();
-		// $posts = $current_user->post()->get()
-		$posts = User::find($current_user['id'])->post()->get();
-		
-		Log::info($current_user->post()->get());
-		return View::make('/upload/post')->with(array('title' => $title, 'posts' => $posts));
+		Log::info('This is some useful information.');
+		return view('/upload/image');
 	}
 
 	/**
@@ -35,13 +29,29 @@ class PostController extends Controller {
 	 */
 	public function create()
 	{
-		$current_user = Auth::user();
-		Post::create([
-			'user_id' => $current_user['id'],
-			'status' => Request::get('status'),
+		$file = Request::file('photo');
+		$extension = $file->getClientOriginalExtension();
+		$filename = $file->getClientOriginalName();
+		Log::info($file);
+		//Store file
+		Storage::disk('local')->put($filename, File::get($file));
+		//Insert into DB
+		FileUpload::create([
+			'user_id' => Auth::user()['id'],
+			'filename' => $file->getFilename().'.'.$extension,
+			'mine' => $file->getClientMimeType(),
+			'origilnal_filename' => $file->getClientOriginalName(),
 		]);
-		return redirect('post')->with('msg','Your post has been create!');
+		
+		Log::info($filename);
+		return redirect('upload')->with('msg','Uploaded');
 	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
 	public function store()
 	{
 		//

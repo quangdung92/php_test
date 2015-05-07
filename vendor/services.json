@@ -27,6 +27,7 @@
         "App\\Providers\\ConfigServiceProvider",
         "App\\Providers\\EventServiceProvider",
         "App\\Providers\\RouteServiceProvider",
+        "Collective\\Html\\HtmlServiceProvider",
         "Laracasts\\Generators\\GeneratorsServiceProvider"
     ],
     "eager": [
@@ -124,7 +125,11 @@
         "auth.password": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
         "auth.password.tokens": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
-        "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider"
+        "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
+        "html": "Collective\\Html\\HtmlServiceProvider",
+        "form": "Collective\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\HtmlBuilder": "Collective\\Html\\HtmlServiceProvider",
+        "Collective\\Html\\FormBuilder": "Collective\\Html\\HtmlServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -158,6 +163,9 @@
 
         ],
         "Illuminate\\Translation\\TranslationServiceProvider": [
+
+        ],
+        "Collective\\Html\\HtmlServiceProvider": [
 
         ]
     }
