@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Auth;
+use Log;
 use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
