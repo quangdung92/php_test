@@ -29,12 +29,12 @@ class TestController extends Controller {
 	{
 		$all = 	Request::all();
 		$rules = array(
-			'name' => 'required|min:5',
 			'email' => 'required|unique:users',
 		);
 		$vali = Validator::make($all, $rules);
 		if ($vali->fails()) {
-			return redirect('test')-> with('msg','Bad!');
+			$messages = $vali->messages();
+			return redirect('test')-> with('msg',$messages ->first('email'));
 		} else {
 		User::create([
 			'name' => Request::get('name'),

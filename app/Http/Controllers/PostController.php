@@ -3,6 +3,7 @@
 use Auth;
 use View;
 use DB;
+use App\User;
 use App\Http\Requests;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,8 @@ class PostController extends Controller {
 	{
 		$current_user = Auth::user();	
 		$title = "Status Post";
-		$posts = DB::table('posts')->where('user_id', '=', $current_user['id'])->get();;
+		// $posts = DB::table('posts')->where('user_id', '=', $current_user['id'])->get();
+		$posts = User::find($current_user['id'])->post()->get();
 		return View::make('post')->with(array('title' => $title, 'posts' => $posts));
 	}
 

@@ -36,7 +36,11 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
 				</ul>
-
+				@if (Auth::user())
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/post') }}">Post</a></li>
+					</ul>
+				@endif
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 						<li><a href="{{ url('/log_in') }}">Login</a></li>
