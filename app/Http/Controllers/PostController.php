@@ -19,7 +19,7 @@ class PostController extends Controller {
 	{
 		$current_user = Auth::user();	
 		$title = "Status Post";
-		$posts = DB::table('posts')->where('user_id', '=', 1)->get();;
+		$posts = DB::table('posts')->where('user_id', '=', $current_user['id'])->get();;
 		return View::make('post')->with(array('title' => $title, 'posts' => $posts));
 	}
 

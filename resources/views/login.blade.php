@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="row" align="center">
+	@if (Auth::user())
+	<h2>You have logged in!Please logout <a href="/logout"> Logout</a></h2>
+	@else
 	<form class="form-horizontal" role="form" method="POST" action="check" >
 		<h2>Login!</h2>
 		<p>
@@ -31,13 +34,10 @@
 				<button type="submit" class="btn btn-primary">
 					Login
 				</button>
-				@if (!Auth::user())
-					<a href="/test" class="btn btn-primary">Back </a>
-				@else
-					<a href="/logout">Logout</a>
-				@endif
+				<a href="/test" class="btn btn-primary">Back </a>
 			</div>
 		</div>
 	</form>
+	@endif
 </div>
 @endsection

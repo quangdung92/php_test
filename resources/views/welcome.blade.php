@@ -1,4 +1,3 @@
-@extends('app')
 <html>
 	<head>
 		<title>Laravel</title>
@@ -38,6 +37,7 @@
 		</style>
 	</head>
 	<body>
+		@extends('app')
 		<div class="container">
 			<div class="content">
 				<div class="title">Laravel 5</div>

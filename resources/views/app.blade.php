@@ -59,5 +59,8 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="/javascripts/jquery.validate.js"></script>
+	<script src="/javascripts/register_form.js"></script>
+	<script src="/javascripts/jquery.validate.min.js"></script>
 </body>
 </html>

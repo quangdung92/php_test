@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row" align="center">
-	<form class="form-horizontal" role="form" method="POST" action="test/register" >
+	<form class="form-horizontal" id="form_register" role="form" method="POST" action="test/register" >
 		<h2>Register!</h2>
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<p>
